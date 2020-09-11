@@ -11,16 +11,24 @@ func translating(px,py,amount):
 	pass
 
 func rotating(rad):
-	pass
+   rotation = sin(rot_steps)
 	
 func scaling(amount):
+   scale.x = sin(amount) + 1.1
+   scale.y = sin(amount) + 1.1
 	pass
 
 
 func _physics_process(delta):
+	posx_steps += 0.007
+   	posy_steps += 0.011
+	scale_steps += 0.003
+	rot_steps += 0.005
 	if global.won:
 		return
-	translating(posx_steps,posy_steps,600)
+func translating(px,py,amount):
+   position.x = sin(px)*amount
+   position.y = sin(py)*amount
 	rotating(rot_steps)
 	scaling(scale_steps)
 
